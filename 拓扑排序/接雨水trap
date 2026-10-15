@@ -1,0 +1,30 @@
+42 接雨水
+题目描述
+给定 n 个非负整数，表示每个宽度为 1 的柱子高度，求下雨之后总共能接住多少雨水。
+示例 1
+输入：height = [0,1,0,2,1,0,1,3,2,1,2,1]
+输出：6
+示例 2
+输入：height = [4,2,0,3,2,5]
+输出：9
+核心公式：位置 i 能存的水量 = min (左边最高高度，右边最高高度) − height [i]
+
+int trap(vector<int>& height) {
+  int l = 0, r = height.size() - 1;
+  int Leftmax = 0, Rightmax = 0;
+  int ans = 0;
+  while(l < r){
+    Leftmax = max(Leftmax, height[l]);
+    Rightmax = max(Rightmax, height[r]);
+    if(Leftmax < Rightmax){
+      ans += Leftmax - height[l];
+      l++;
+    }
+    else{
+      ans += Rightmax - height[r];
+      r--;
+    }
+    
+  }
+  return ans;
+}
