@@ -1,6 +1,6 @@
 vector<int> topo_sort(int n, vector<vector<int>>& edges) {
-  vector<vector<int>>& adj;
-  vector<int> in_degree{n, 0};
+  vector<vector<int>> adj(n);
+  vector<int> in_degree(n, 0);
   for(auto edu: edges){
     int u = edu[0], v = edu[1];
     adj[u].push_back(v);
@@ -8,7 +8,7 @@ vector<int> topo_sort(int n, vector<vector<int>>& edges) {
   }
   queue<int> que;
   for(int i = 0; i < n; i++ ){
-    if(in_degree[i] = 0){
+    if(in_degree[i] == 0){
       que.push(i);
     }
   }
