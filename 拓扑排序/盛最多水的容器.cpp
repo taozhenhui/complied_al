@@ -8,12 +8,12 @@
 
 int maxArea(vector<int>& height) {
   int l = 0; int r = height.size() - 1;
-  int max = 0;
+  int ans = 0;
   while(l < r){
-    int area = (r - l) * min(height(l), height(r));
-    max = max(max, area);
+    int area = (r - l) * min(height[l], height[r]);
+    ans = max(ans, area);
     if(height(l) < height(r)) l++;
     else{r--;}
   }
-  return max;
+  return ans;
 }
