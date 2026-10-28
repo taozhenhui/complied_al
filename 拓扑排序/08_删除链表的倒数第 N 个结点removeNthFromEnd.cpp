@@ -1,6 +1,6 @@
 ListNode* removeNthFromEnd(int n, ListNode* head){
   ListNode* dummy = new ListNode(0);
-  dummy = head->next;
+  dummy->next = head;
   ListNode* fast = dummy;
   ListNode* slow = dummy;
   for(int i = 0; i < n ;i++){
