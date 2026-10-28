@@ -23,3 +23,4 @@ int longestConsecutive(vector<int>& nums) {
   }
   return max_len;
 }
+
