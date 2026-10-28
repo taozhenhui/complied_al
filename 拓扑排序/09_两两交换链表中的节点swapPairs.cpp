@@ -11,8 +11,8 @@ ListNode* swapPairs(ListNode* head){
     ListNode* a = cur->next;
     ListNode* b = cur->next->next;
     cur->next = b;
-    b->next = a;
     a->next = b->next;
+    b->next = a;
     cur = a;
   }
   return dummy->next;
